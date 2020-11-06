@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<script></script>
+<style>
+    div {
+        background-color: rgb(231, 131, 101);
+        margin-bottom: 200px;
+        margin-top: 50px;
+        padding: 250px;
+        border-style: groove;
+        border-color: black;
+        font-weight: bold;
+        text-align: italic;
+        font-size: xx-large;
+        text-decoration: solid;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Dropdown</title>
+    <script>
+        function selectDevice() {
+            ar1 = '1.Lenevo~2.Sony~3.Hp~4.Dell~5.Apple~6.Microsoft Surface Book~7.Toshiba';
+            ltemp = ar1.split('~').join(" <br> ");
+            ar2 = '1.SAMSUNG~2.LG~3.SONY~4.TOSHIBA~5.Mi~6.TCL  ';
+            ttemp = ar2.split('~').join(" <br> ");
+
+            ar3 = '1.iPhone~2.Samsung~3.Sony~4.RedMe~5.realme~6.Vivo~7.oppo~8.Micromax~9.Gionee~10.Honor~11.Nokia';
+            mtemp = ar3.split('~').join(" <br> ");
+            var sel = document.getElementById("mydevice");
+
+            if (sel.value == 'Laptop') {
+                document.getElementById("mydiv").innerHTML = ltemp;
+            } else if (sel.value == 'TV') {
+                document.getElementById("mydiv").innerHTML = ttemp;
+            } else if (sel.value == 'Mobile') {
+                document.getElementById("mydiv").innerHTML = mtemp;
+            } else {
+                document.getElementById("mydiv").innerHTML = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <img src="image.jpg" height="100" width="100">
+        <table>
+            Select Device
+            <select name="device" id="mydevice" onclick="selectDevice()">
+<option value="select">--select--</option>
+<option value="Laptop">Laptop</option></br>
+<option value="TV">Television</option></br>
+<option value="Mobile">Mobile</option></select></br>
+            </select>
+            <div style="background-color:rgb(80, 154, 214);" id="mydiv"></div>
+
+        </table>
+    </div>
+</body>
+
+
+</html>
