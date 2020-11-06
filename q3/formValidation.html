@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous">
+</script>
+<script>
+    $(document).ready(function() {
+                $('#show').click(function() {
+                            var url = "http://localhost:3000/checkUser?username=" + $('#uname').val()
+                            $.get(url, function(data, status) {
+
+                                    if (data) {
+                                        alert("enter the different username");
+                                    } else {
+                                        checkother();
+                                    }
+
+                                }) <
+                                style >
+                                body {
+                                    color: blue;
+                                }
+
+                            div {
+                                background - color: rgb(167, 233, 241);
+                                margin - bottom: 200 px;
+                                margin - top: 50 px;
+                                padding: 250 px;
+                                border - style: groove;
+                                border - color: black;
+                                font - weight: bold;
+                                text - align: centre;
+                            }
+
+                            table,
+                            tr,
+                            td {
+                                border: 10 px;
+                            }
+
+                            .submit {
+                                margin - right: 10 px;
+                            }
+
+                            h1 {
+                                background - color: rgb(157, 158, 233);
+                                font - style: italic;
+                            } <
+                            /style>
+
+                            <
+                            body >
+
+
+                                <
+                                div >
+                                <
+                                h1 > Registration Form < /h1> <
+                            p > Enter Name: < input type = "text"
+                            id = "uname" > < /p> <
+                            p > Enter Password: < input type = "password"
+                            id = "uid" > < /p> <
+                            p > Enter Email id: < input type = "email"
+                            id = "uemail" > < /p> <
+                            p > Enter Phone No: < input type = "string"
+                            id = "uphn" > < /p> <
+                            p > Enter City: < input type = "text"
+                            id = "ucity" > < /p> <
+                            p > < button onclick = "register()" > Submit < /button> <button onclick="clearb()">Clear</button > < /p> < /
+                            div > <
+                                /body> <
+                            script >
+                                function clearb() {
+                                    document.getElementById("uname").value = "";
+                                    document.getElementById("uid").value = "";
+                                    document.getElementById("uemail").value = "";
+                                    document.getElementById("uphn").value = "";
+                                    document.getElementById("ucity").value = "";
+                                }
+
+                            function register() {
+                                var pwd = /^(?=.*[a-z][!@#$%^&*])(?=.*[A-Z][!@#$%^&*])(?=.*[0-9][!@#$%^&*])/;
+                                var uppercase = /[A-Z]/;
+                                var lowercase = /[a-z]/;
+                                var number = /[0-9]/;
+                                var mail = /[a-zA-Z0-9.]+@[a-z]+\.[a-z]/
+                                var specialcharcter = /[!@#$%^&*]/;
+                                var flag = 0;
+                                var name = document.getElementById("uname").value;
+                                var password = document.getElementById("uid").value;
+                                var email = document.getElementById("uemail").value;
+                                var phone = document.getElementById("uphn").value;
+                                var city = document.getElementById("ucity").value;
+                                var atpos = email.indexOf("@");
+                                var dotpos = email.lastIndexOf(".");
+                                if (name.length <= 5)
+                                    alert("user name is too short");
+                                else if (name.length >= 15)
+                                    alert("user name is too long");
+                                else if (!((password.match(uppercase)) && (password.match(lowercase)) && (password.match(number)) && (password.match(specialcharcter)))) {
+                                    alert("Password should contain atleast one uppercase letter, one lowercase letter,one digit and one special character")
+                                } else if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 > email.length) {
+                                    debugger
+                                    alert("invalid mail id")
+                                } else if (phone.length > 0) {
+                                    if (phone.length < 10 || phone.length > 10)
+                                        alert("Not a valid phone number")
+                                }
+
+
+                                for (let index = 0; index < name.length; index++) {
+                                    const element = name[index];
+                                    if (!element.localeCompare(name)) {
+                                        alert("user already exists" + element)
+                                        flag = 1;
+                                        break;
+                                    }
+                                }
+
+                                if (flag == 0) {
+                                    debugger
+                                    alert("User registration is successfull")
+                                }
+                            }
+</script>
+
+
+
+</html>
